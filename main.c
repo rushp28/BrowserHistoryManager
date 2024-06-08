@@ -45,5 +45,8 @@ int main() {
 
     destroyBrowserHistory(pBrowserHistory);
 
+    printf("Press Enter to continue...");
+    getchar();
+
     return 0;
 }
