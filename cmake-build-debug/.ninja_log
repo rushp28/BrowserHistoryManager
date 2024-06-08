@@ -1,0 +1,7 @@
+# ninja log v5
+232	525	7395524235499950	BrowserHistoryManager.exe	d949448fb2cf2b1b
+4	230	7395524232767690	CMakeFiles/BrowserHistoryManager.dir/main.c.obj	8217a9652ed3f543
+1	331	7395523684326681	CMakeFiles/BrowserHistoryManager.dir/date.c.obj	b88ae64df8755c13
+0	473	7395524680529404	build.ninja	7351117ebf8e2b44
+3	217	7395524684069764	CMakeFiles/BrowserHistoryManager.dir/main.c.obj	8217a9652ed3f543
+218	527	7395524686919793	BrowserHistoryManager.exe	d949448fb2cf2b1b
