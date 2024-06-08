@@ -8,14 +8,14 @@ WebPage* createWebPage(char pageName[], char pageId[], char siteUrl[], bool isBo
 {
     if (!isValidWebPage(pageName, pageId, siteUrl, isBookmarked))
     {
-        fprintf(stderr, "Error: Invalid Web Page provided: %s, %s, %s, %s\n", pageName, pageId, siteUrl, isBookmarked ? "Yes" : "No");
+        fprintf(stderr, "Error: Invalid Web Page provided: %s, %s, %s, %s.\n", pageName, pageId, siteUrl, isBookmarked ? "Yes" : "No");
         return NULL;
     }
 
     WebPage* pWebPage = (WebPage*)calloc(1, sizeof(WebPage));
     if (pWebPage == NULL)
     {
-        fprintf(stderr, "Error: Memory allocation for Web Page object failed!\n");
+        fprintf(stderr, "Error: Memory allocation for Web Page object failed.\n");
         return NULL;
     }
 

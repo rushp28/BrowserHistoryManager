@@ -6,14 +6,14 @@
 Date* createDate(short int day, short int month, short int year) {
     if (!isValidDate(day, month, year)) {
         if (!isValidDate(day, month, year)) {
-            fprintf(stderr, "Error: Invalid Date provided: %02d/%02d/%d\n", day, month, year);
+            fprintf(stderr, "Error: Invalid Date provided: %02d/%02d/%d.\n", day, month, year);
             return NULL;
         }
     }
 
     Date* pDate = (Date*)calloc(1, sizeof(Date));
     if (pDate == NULL) {
-        fprintf(stderr, "Error: Memory allocation for Date object failed!\n");
+        fprintf(stderr, "Error: Memory allocation for Date object failed.\n");
         return NULL;
     }
 

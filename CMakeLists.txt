@@ -8,4 +8,6 @@ add_executable(BrowserHistoryManager main.c
         date.h
         webPage.c
         webPage.h
+        browserHistoryItem.c
+        browserHistoryItem.h
 )
