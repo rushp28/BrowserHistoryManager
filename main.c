@@ -2,7 +2,6 @@
 
 #include "date.h"
 
-int main()
-{
+int main() {
     return 0;
 }

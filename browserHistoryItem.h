@@ -4,9 +4,8 @@
 #include "date.h"
 #include "webPage.h"
 
-typedef struct BrowserHistoryItem
-{
-    short unsigned int browserHistoryItemId;
+typedef struct BrowserHistoryItem {
+    unsigned int browserHistoryItemId;
     WebPage* pWebPage;
     Date dateVisited;
     struct BrowserHistoryItem* pNext;
