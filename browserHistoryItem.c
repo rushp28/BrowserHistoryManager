@@ -18,9 +18,7 @@ BrowserHistoryItem* createBrowserHistoryItem(WebPage* pWebPage, Date* pDateVisit
     pBrowserHistoryItem->browserHistoryItemId = 0;
     pBrowserHistoryItem->pWebPage = pWebPage;
 
-    pBrowserHistoryItem->dateVisited.day = pDateVisited->day;
-    pBrowserHistoryItem->dateVisited.month = pDateVisited->month;
-    pBrowserHistoryItem->dateVisited.year = pDateVisited->year;
+    pBrowserHistoryItem->dateVisited = pDateVisited;
 
     pBrowserHistoryItem->pNext = NULL;
     pBrowserHistoryItem->pPrevious = NULL;
@@ -29,8 +27,25 @@ BrowserHistoryItem* createBrowserHistoryItem(WebPage* pWebPage, Date* pDateVisit
 }
 
 void destroyBrowserHistoryItem(BrowserHistoryItem* pBrowserHistoryItem) {
-    destroyDate(&pBrowserHistoryItem->dateVisited);
+    destroyDate(pBrowserHistoryItem->dateVisited);
     destroyWebPage(pBrowserHistoryItem->pWebPage);
     free(pBrowserHistoryItem);
+}
+
+void printBrowserHistoryItem(BrowserHistoryItem* pBrowserHistoryItem) {
+    if (pBrowserHistoryItem == NULL) {
+        fprintf(stderr, "Error: NULL Pointer for Browser History Item. Pointer for Browser History Item should not be NULL.\n");
+        return;
+    }
+
+    printf("| %-3d | %-15s | %-10s | %02d/%02d/%d   | %-45s | %-10s |\n",
+           pBrowserHistoryItem->browserHistoryItemId,
+           pBrowserHistoryItem->pWebPage->pageName,
+           pBrowserHistoryItem->pWebPage->pageId,
+           pBrowserHistoryItem->dateVisited->day,
+           pBrowserHistoryItem->dateVisited->month,
+           pBrowserHistoryItem->dateVisited->year,
+           pBrowserHistoryItem->pWebPage->siteUrl,
+           pBrowserHistoryItem->pWebPage->isBookmarked ? "Yes" : "No");
 }
 

@@ -7,7 +7,7 @@
 typedef struct BrowserHistoryItem {
     unsigned int browserHistoryItemId;
     WebPage* pWebPage;
-    Date dateVisited;
+    Date* dateVisited;
     struct BrowserHistoryItem* pNext;
     struct BrowserHistoryItem* pPrevious;
 } BrowserHistoryItem;
@@ -15,5 +15,7 @@ typedef struct BrowserHistoryItem {
 BrowserHistoryItem* createBrowserHistoryItem(WebPage* pWebPage, Date* pDateVisited);
 
 void destroyBrowserHistoryItem(BrowserHistoryItem* pBrowserHistoryItem);
+
+void printBrowserHistoryItem(BrowserHistoryItem* pBrowserHistoryItem);
 
 #endif //BROWSERHISTORYMANAGER_BROWSERHISTORYITEM_H

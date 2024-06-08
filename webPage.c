@@ -29,18 +29,18 @@ void destroyWebPage(WebPage* pWebPage) {
 }
 
 bool isValidWebPage(char pageName[], char pageId[], char siteUrl[], bool isBookmarked) {
-    if (strlen(pageId) != MAX_PAGE_ID_LENGTH) {
+    if (strlen(pageId) != (MAX_PAGE_ID_LENGTH - 1)) {
         fprintf(stderr, "Error: Invalid Page ID. Page ID must be %d characters.\n", (MAX_PAGE_ID_LENGTH - 1));
         return false;
     }
 
-    if (strlen(pageName) != (MAX_PAGE_NAME_LENGTH - 1)) {
+    if (strlen(pageName) < 1 || strlen(pageName) > (MAX_PAGE_NAME_LENGTH - 1)) {
         fprintf(stderr, "Error: Invalid Page Name. Page Name must be between 1 and %d characters.\n", MAX_PAGE_NAME_LENGTH);
         return false;
     }
 
-    if (strlen(siteUrl) > MAX_SITE_URL_LENGTH) {
-        fprintf(stderr, "Error: Invalid Site URL. Site URL must be less than %d characters.\n", MAX_SITE_URL_LENGTH);
+    if (strlen(siteUrl) < 1 || strlen(siteUrl) > (MAX_SITE_URL_LENGTH - 1)) {
+        fprintf(stderr, "Error: Invalid Site URL. Site URL must be between 1 and %d characters.\n", MAX_SITE_URL_LENGTH);
         return false;
     }
 

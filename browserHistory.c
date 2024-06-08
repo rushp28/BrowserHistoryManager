@@ -64,12 +64,13 @@ void deleteBrowserHistoryItem(BrowserHistory* pBrowserHistory, int browserHistor
     }
 
     BrowserHistoryItem* pCurrentBHItem = NULL;
-    int stepsFromHead = browserHistoryItemId - 1;
-    int stepsFromTail = pBrowserHistory->numberOfItems - 1 - browserHistoryItemId;
+    int stepsFromHead = pBrowserHistory->numberOfItems - browserHistoryItemId;
+    int stepsFromTail = browserHistoryItemId - 1;
 
     if (stepsFromHead <= stepsFromTail) {
+
         pCurrentBHItem = pBrowserHistory->pHead;
-        for (int steps = 0; steps < browserHistoryItemId; steps++) {
+        for (int steps = 0; steps < stepsFromHead; steps++) {
             if (pCurrentBHItem != NULL) {
                 pCurrentBHItem = pCurrentBHItem->pNext;
             }
@@ -99,16 +100,71 @@ void deleteBrowserHistoryItem(BrowserHistory* pBrowserHistory, int browserHistor
             pBrowserHistory->pTail = pCurrentBHItem->pPrevious;
         }
 
-        BrowserHistoryItem* pToBeUpdatedBHItem = pCurrentBHItem->pNext;
+        BrowserHistoryItem* pToBeUpdatedBHItem = pCurrentBHItem->pPrevious;
 
         destroyBrowserHistoryItem(pCurrentBHItem);
         pBrowserHistory->numberOfItems--;
 
         while (pToBeUpdatedBHItem != NULL) {
             pToBeUpdatedBHItem->browserHistoryItemId--;
-            pToBeUpdatedBHItem = pToBeUpdatedBHItem->pNext;
+            pToBeUpdatedBHItem = pToBeUpdatedBHItem->pPrevious;
         }
     }
 }
 
+void printBrowserHistory(BrowserHistory* pBrowserHistory, bool reversed, bool bookmarkedOnly) {
+    if (pBrowserHistory == NULL) {
+        fprintf(stderr, "Error: NULL Pointer Browser History. Pointer for Browser History should not be NULL\n");
+        return;
+    }
+
+    if (pBrowserHistory->pHead == NULL) {
+        fprintf(stderr, "Error: Empty Browser History. Browser History should not be empty for printing.\n");
+        return;
+    }
+
+    if (reversed) {
+        fprintf(stdout, "REVERSED\n");
+    }
+    else {
+        fprintf(stdout, "NORMAL\n");
+    }
+    if (bookmarkedOnly) {
+        fprintf(stdout, "BOOKMARKED ONLY\n");
+    }
+
+    fprintf(stdout, "| %-3s | %-15s | %-10s | %-10s | %-45s | %-10s |\n",
+           "ID",
+           "Page Name",
+           "Page ID",
+           "Date Visited",
+           "Site URL",
+           "Bookmarked");
+
+    BrowserHistoryItem* pCurrentBHItem = NULL;
+    if (reversed) {
+        pCurrentBHItem = pBrowserHistory->pTail;
+    }
+    else {
+        pCurrentBHItem = pBrowserHistory->pHead;
+    }
+
+    while (pCurrentBHItem != NULL) {
+        if (bookmarkedOnly) {
+            if (pCurrentBHItem->pWebPage->isBookmarked) {
+                printBrowserHistoryItem(pCurrentBHItem);
+            }
+        }
+        else {
+            printBrowserHistoryItem(pCurrentBHItem);
+        }
+
+        if (reversed) {
+            pCurrentBHItem = pCurrentBHItem->pPrevious;
+        }
+        else {
+            pCurrentBHItem = pCurrentBHItem->pNext;
+        }
+    }
+}
 
