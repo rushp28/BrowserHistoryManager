@@ -61,6 +61,18 @@ build CMakeFiles/BrowserHistoryManager.dir/date.c.obj: C_COMPILER__BrowserHistor
   OBJECT_DIR = CMakeFiles\BrowserHistoryManager.dir
   OBJECT_FILE_DIR = CMakeFiles\BrowserHistoryManager.dir
 
+build CMakeFiles/BrowserHistoryManager.dir/browserHistoryItem.c.obj: C_COMPILER__BrowserHistoryManager_unscanned_Debug D$:/Programming/c_and_cpp_projects/BrowserHistoryManager/browserHistoryItem.c || cmake_object_order_depends_target_BrowserHistoryManager
+  DEP_FILE = CMakeFiles\BrowserHistoryManager.dir\browserHistoryItem.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\BrowserHistoryManager.dir
+  OBJECT_FILE_DIR = CMakeFiles\BrowserHistoryManager.dir
+
+build CMakeFiles/BrowserHistoryManager.dir/webPage.c.obj: C_COMPILER__BrowserHistoryManager_unscanned_Debug D$:/Programming/c_and_cpp_projects/BrowserHistoryManager/webPage.c || cmake_object_order_depends_target_BrowserHistoryManager
+  DEP_FILE = CMakeFiles\BrowserHistoryManager.dir\webPage.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\BrowserHistoryManager.dir
+  OBJECT_FILE_DIR = CMakeFiles\BrowserHistoryManager.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target BrowserHistoryManager
@@ -69,7 +81,7 @@ build CMakeFiles/BrowserHistoryManager.dir/date.c.obj: C_COMPILER__BrowserHistor
 #############################################
 # Link the executable BrowserHistoryManager.exe
 
-build BrowserHistoryManager.exe: C_EXECUTABLE_LINKER__BrowserHistoryManager_Debug CMakeFiles/BrowserHistoryManager.dir/main.c.obj CMakeFiles/BrowserHistoryManager.dir/date.c.obj
+build BrowserHistoryManager.exe: C_EXECUTABLE_LINKER__BrowserHistoryManager_Debug CMakeFiles/BrowserHistoryManager.dir/main.c.obj CMakeFiles/BrowserHistoryManager.dir/date.c.obj CMakeFiles/BrowserHistoryManager.dir/browserHistoryItem.c.obj CMakeFiles/BrowserHistoryManager.dir/webPage.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\BrowserHistoryManager.dir

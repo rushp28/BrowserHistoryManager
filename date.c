@@ -1,12 +1,12 @@
-#include "date.h"
-
 #include <stdio.h>
 #include <malloc.h>
+
+#include "date.h"
 
 Date* createDate(short int day, short int month, short int year) {
     if (!isValidDate(day, month, year)) {
         if (!isValidDate(day, month, year)) {
-            fprintf(stderr, "Error: Invalid date provided: %02d/%02d/%d\n", day, month, year);
+            fprintf(stderr, "Error: Invalid Date provided: %02d/%02d/%d\n", day, month, year);
             return NULL;
         }
     }
@@ -34,19 +34,19 @@ bool isLeapYear(short int year) {
 
 bool isValidDate(short int day, short int month, short int year) {
     if (day < 1) {
-        fprintf(stderr, "Error: Invalid day. Day must be greater than 0.\n");
+        fprintf(stderr, "Error: Invalid Day. Day must be greater than 0.\n");
         return false;
     }
 
-    if (year < 0 || year > 9999) {
-        fprintf(stderr, "Error: Invalid year. Year must be between 0 and 9999.\n");
+    if (year < 1 || year > 9999) {
+        fprintf(stderr, "Error: Invalid Year. Year must be between 1 and 9999.\n");
         return false;
     }
 
     switch (month) {
         case 1: case 3: case 5: case 7: case 8: case 10: case 12:
             if (day > 31) {
-                fprintf(stderr, "Error: Invalid day for month %d. Day must be between 1 and 31.\n", month);
+                fprintf(stderr, "Error: Invalid Day for Month %d. Day must be between 1 and 31.\n", month);
                 return false;
             }
 
@@ -54,7 +54,7 @@ bool isValidDate(short int day, short int month, short int year) {
 
         case 4: case 6: case 9: case 11:
             if (day > 30) {
-                fprintf(stderr, "Error: Invalid day for month %d. Day must be between 1 and 30.\n", month);
+                fprintf(stderr, "Error: Invalid Day for Month %d. Day must be between 1 and 30.\n", month);
                 return false;
             }
 
@@ -63,13 +63,13 @@ bool isValidDate(short int day, short int month, short int year) {
         case 2:
             if (isLeapYear(year)) {
                 if (day > 29) {
-                    fprintf(stderr, "Error: Invalid day for February in a leap year. Day must be between 1 and 29.\n");
+                    fprintf(stderr, "Error: Invalid Day for February in a leap year. Day must be between 1 and 29.\n");
                     return false;
                 }
             }
             else {
                 if (day > 28) {
-                    fprintf(stderr, "Error: Invalid day for February in a non-leap year. Day must be between 1 and 28.\n");
+                    fprintf(stderr, "Error: Invalid Day for February in a non-leap year. Day must be between 1 and 28.\n");
                     return false;
                 }
             }
@@ -77,7 +77,7 @@ bool isValidDate(short int day, short int month, short int year) {
             return true;
 
         default:
-            fprintf(stderr, "Error: Invalid month. Month must be between 1 and 12.\n");
+            fprintf(stderr, "Error: Invalid Month. Month must be between 1 and 12.\n");
             return false;
     }
 }
