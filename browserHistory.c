@@ -46,6 +46,10 @@ void pushBrowserHistoryItem(BrowserHistory* pBrowserHistory, BrowserHistoryItem*
     else {
         if (pBrowserHistory->numberOfItems >= MAX_BROWSER_HISTORY_LENGTH) {
             fprintf(stderr, "Error: Browser History is Full. Browser History should not exceed %d items. Pushing Browser History Item failed.\n", MAX_BROWSER_HISTORY_LENGTH);
+
+            destroyWebPage(pBrowserHistoryItem->pWebPage);
+            destroyDate(pBrowserHistoryItem->dateVisited);
+
             return;
         }
 
@@ -135,12 +139,15 @@ void printBrowserHistory(BrowserHistory* pBrowserHistory, bool reversed, bool bo
 
     if (reversed) {
         fprintf(stdout, "REVERSED\n");
+        fflush(stdout);
     }
     else {
         fprintf(stdout, "NORMAL\n");
+        fflush(stdout);
     }
     if (bookmarkedOnly) {
         fprintf(stdout, "BOOKMARKED ONLY\n");
+        fflush(stdout);
     }
 
     fprintf(stdout, "| %-3s | %-15s | %-10s | %-10s | %-45s | %-10s |\n",
@@ -150,6 +157,7 @@ void printBrowserHistory(BrowserHistory* pBrowserHistory, bool reversed, bool bo
            "Date Visited",
            "Site URL",
            "Bookmarked");
+    fflush(stdout);
 
     BrowserHistoryItem* pCurrentBHItem = NULL;
     if (reversed) {

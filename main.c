@@ -36,16 +36,18 @@ int main() {
     deleteBrowserHistoryItem(pBrowserHistory, 3);
 
     fprintf(stdout, "AFTER DELETING BROWSER HISTORY ITEM 3\n");
+    fflush(stdout);
     printBrowserHistory(pBrowserHistory, false, false);
 
     deleteBrowserHistoryItem(pBrowserHistory, 1);
 
     fprintf(stdout, "AFTER DELETING BROWSER HISTORY ITEM 1\n");
+    fflush(stdout);
     printBrowserHistory(pBrowserHistory, false, false);
 
     destroyBrowserHistory(pBrowserHistory);
 
-    printf("Press Enter to continue...");
+    printf("\nPress Enter to Continue...");
     getchar();
 
     return 0;

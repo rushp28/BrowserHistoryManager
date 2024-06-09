@@ -12,6 +12,10 @@ BrowserHistoryItem* createBrowserHistoryItem(WebPage* pWebPage, Date* pDateVisit
     BrowserHistoryItem* pBrowserHistoryItem = (BrowserHistoryItem*)calloc(1, sizeof(BrowserHistoryItem));
     if (pBrowserHistoryItem == NULL) {
         fprintf(stderr, "Memory Allocation for Browser History Item Failed. Creating Browser History Item object failed.\n");
+
+        destroyWebPage(pWebPage);
+        destroyDate(pDateVisited);
+
         return NULL;
     }
 
