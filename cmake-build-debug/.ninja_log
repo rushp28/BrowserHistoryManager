@@ -96,3 +96,9 @@
 396	2570	7396251966701822	BrowserHistoryManager.exe	2047a72c3114f77a
 15	253	7396327043698864	CMakeFiles/BrowserHistoryManager.dir/main.c.obj	8217a9652ed3f543
 254	1773	7396327047105350	BrowserHistoryManager.exe	2047a72c3114f77a
+43	500	7396444681532134	CMakeFiles/BrowserHistoryManager.dir/main.c.obj	8217a9652ed3f543
+30	508	7396444681613500	CMakeFiles/BrowserHistoryManager.dir/webPage.c.obj	799cc7a35aa7b28a
+15	510	7396444681684829	CMakeFiles/BrowserHistoryManager.dir/date.c.obj	b88ae64df8755c13
+55	513	7396444681857377	CMakeFiles/BrowserHistoryManager.dir/browserHistory.c.obj	e3e50422c88fe398
+67	515	7396444681684829	CMakeFiles/BrowserHistoryManager.dir/browserHistoryItem.c.obj	7b0de9c03784c588
+515	1789	7396444684880717	BrowserHistoryManager.exe	2047a72c3114f77a
