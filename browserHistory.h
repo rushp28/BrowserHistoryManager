@@ -3,6 +3,8 @@
 
 #include "browserHistoryItem.h"
 
+#define MAX_BROWSER_HISTORY_LENGTH 100
+
 typedef struct BrowserHistory {
     BrowserHistoryItem* pHead;
     BrowserHistoryItem* pTail;

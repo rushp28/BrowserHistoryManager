@@ -5,13 +5,13 @@
 
 BrowserHistoryItem* createBrowserHistoryItem(WebPage* pWebPage, Date* pDateVisited) {
     if(pWebPage == NULL || pDateVisited == NULL) {
-        fprintf(stderr, "Error: NULL Pointer for Web Page or Visited Date. Pointer for Web Page or Visited Date should not be NULL.\n");
+        fprintf(stderr, "Error: NULL Pointer for Web Page or Visited Date. Pointer for Web Page or Visited Date should not be NULL. Creating Browser History Item object failed.\n");
         return NULL;
     }
 
     BrowserHistoryItem* pBrowserHistoryItem = (BrowserHistoryItem*)calloc(1, sizeof(BrowserHistoryItem));
     if (pBrowserHistoryItem == NULL) {
-        fprintf(stderr, "Memory Allocation for Browser History Item Failed.\n");
+        fprintf(stderr, "Memory Allocation for Browser History Item Failed. Creating Browser History Item object failed.\n");
         return NULL;
     }
 
@@ -27,6 +27,11 @@ BrowserHistoryItem* createBrowserHistoryItem(WebPage* pWebPage, Date* pDateVisit
 }
 
 void destroyBrowserHistoryItem(BrowserHistoryItem* pBrowserHistoryItem) {
+    if (pBrowserHistoryItem == NULL) {
+        fprintf(stderr, "Error: NULL Pointer for Browser History Item. Pointer for Browser History Item should not be NULL. Destroying Browser History Item object failed.\n");
+        return;
+    }
+
     destroyDate(pBrowserHistoryItem->dateVisited);
     destroyWebPage(pBrowserHistoryItem->pWebPage);
     free(pBrowserHistoryItem);
@@ -34,7 +39,7 @@ void destroyBrowserHistoryItem(BrowserHistoryItem* pBrowserHistoryItem) {
 
 void printBrowserHistoryItem(BrowserHistoryItem* pBrowserHistoryItem) {
     if (pBrowserHistoryItem == NULL) {
-        fprintf(stderr, "Error: NULL Pointer for Browser History Item. Pointer for Browser History Item should not be NULL.\n");
+        fprintf(stderr, "Error: NULL Pointer for Browser History Item. Pointer for Browser History Item should not be NULL. Printing Browser History Item failed.\n");
         return;
     }
 

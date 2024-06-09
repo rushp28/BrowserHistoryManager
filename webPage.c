@@ -6,13 +6,13 @@
 
 WebPage* createWebPage(char pageName[], char pageId[], char siteUrl[], bool isBookmarked) {
     if (!isValidWebPage(pageName, pageId, siteUrl, isBookmarked)) {
-        fprintf(stderr, "Error: Invalid Web Page provided: %s, %s, %s, %s.\n", pageName, pageId, siteUrl, isBookmarked ? "Yes" : "No");
+        fprintf(stderr, "Error: Invalid Web Page provided: %s, %s, %s, %s. Creating Web Page object failed.\n", pageName, pageId, siteUrl, isBookmarked ? "true" : "false");
         return NULL;
     }
 
     WebPage* pWebPage = (WebPage*)calloc(1, sizeof(WebPage));
     if (pWebPage == NULL) {
-        fprintf(stderr, "Error: Memory allocation for Web Page object failed.\n");
+        fprintf(stderr, "Error: Memory allocation for Web Page object failed. Creating Web Page object failed.\n");
         return NULL;
     }
 
@@ -25,10 +25,20 @@ WebPage* createWebPage(char pageName[], char pageId[], char siteUrl[], bool isBo
 }
 
 void destroyWebPage(WebPage* pWebPage) {
+    if (pWebPage == NULL) {
+        fprintf(stderr, "Error: NULL Pointer for Web Page. Pointer for Web Page should not be NULL. Destroying Web Page object failed.\n");
+        return;
+    }
+    
     free(pWebPage);
 }
 
 bool isValidWebPage(char pageName[], char pageId[], char siteUrl[], bool isBookmarked) {
+    if (pageId == NULL || pageName == NULL || siteUrl == NULL) {
+        fprintf(stderr, "Error: NULL Pointer for Page ID, Page Name or Site URL. Pointer for Page ID, Page Name or Site URL should not be NULL.\n");
+        return false;
+    }
+
     if (strlen(pageId) != (MAX_PAGE_ID_LENGTH - 1)) {
         fprintf(stderr, "Error: Invalid Page ID. Page ID must be %d characters.\n", (MAX_PAGE_ID_LENGTH - 1));
         return false;
