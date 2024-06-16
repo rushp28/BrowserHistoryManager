@@ -83,7 +83,7 @@
     </a>
     <ol>
         <li>Clone the repository to your local computer.</li>
-        <li>Navigate to "BroswerHistoryManager.exe" on the "cmake-build-debug" and run it.</li>
+        <li>Navigate to "BrowserHistoryManager.exe" on the "cmake-build-debug" and run it.</li>
     </ol>
 </div>
 
