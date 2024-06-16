@@ -8,8 +8,7 @@
 int main() {
     // Create a BrowserHistory object
     BrowserHistory* pBrowserHistory = createBrowserHistory();
-    if (pBrowserHistory == NULL)
-    {
+    if (pBrowserHistory == NULL) {
         return 1;
     }
 
@@ -18,16 +17,30 @@ int main() {
     BrowserHistoryItem* pItem2 = createBrowserHistoryItem(createWebPage("Tutorialspoint", "012C", "https://www.tutorialspoint.com/index.htm", true), createDate(6, 8, 2023));
     BrowserHistoryItem* pItem3 = createBrowserHistoryItem(createWebPage("GeeksforGeeks", "011B", "https://www.geeksforgeeks.org/", true), createDate(9, 8, 2023));
     BrowserHistoryItem* pItem4 = createBrowserHistoryItem(createWebPage("YouTube", "001A", "https://www.youtube.com/", false), createDate(10, 8, 2023));
-    if(pItem1 == NULL || pItem2 == NULL || pItem3 == NULL || pItem4 == NULL)
-    {
+    if(pItem1 == NULL || pItem2 == NULL || pItem3 == NULL || pItem4 == NULL) {
         return 1;
     }
 
-    // Push BrowserHistoryItem objects to BrowserHistory object
+    // Push BrowserHistoryItem objects to BrowserHistory object and print BrowserHistory object
     pushBrowserHistoryItem(pBrowserHistory, pItem1);
+    fprintf(stdout, "AFTER PUSHING BROWSER HISTORY ITEM 1\n");
+    fflush(stdout);
+    printBrowserHistory(pBrowserHistory, false, false);
+
     pushBrowserHistoryItem(pBrowserHistory, pItem2);
+    fprintf(stdout, "AFTER PUSHING BROWSER HISTORY ITEM 2\n");
+    fflush(stdout);
+    printBrowserHistory(pBrowserHistory, false, false);
+
     pushBrowserHistoryItem(pBrowserHistory, pItem3);
+    fprintf(stdout, "AFTER PUSHING BROWSER HISTORY ITEM 3\n");
+    fflush(stdout);
+    printBrowserHistory(pBrowserHistory, false, false);
+
     pushBrowserHistoryItem(pBrowserHistory, pItem4);
+    fprintf(stdout, "AFTER PUSHING BROWSER HISTORY ITEM 4\n");
+    fflush(stdout);
+    printBrowserHistory(pBrowserHistory, false, false);
 
     // Print BrowserHistory object
     printBrowserHistory(pBrowserHistory, false, false);
