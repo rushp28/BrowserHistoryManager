@@ -12,7 +12,7 @@
     <a href="https://git.io/typing-svg">
         <img src="https://readme-typing-svg.demolab.com?font=Jetbrains+Mono&size=25&weight=700&pause=10&color=27F786&background=AE49FF00&center=false&vCenter=true&repeat=false&random=false&width=435&height=35&lines=Introduction" alt="Introduction" />
     </a>
-    <p>Milestone 1 of Data Structures and Algorithms involves creating a Browser History Manager, an application designed to manage the browsing history of a user. The application should allow the insertion, deletion, display of history, display of history in reverse order, and display of bookmarked sites. To achieve this a Linear Doubly Linked List is utilized along with it corresponding methods.</p>
+    <p>The Browser History Manager is a robust application designed to manage and manipulate a user's browsing history. This application leverages the power of a Linear Doubly Linked List data structure to efficiently handle operations such as insertion, deletion, and display of browsing history. Additionally, it provides the functionality to display the browsing history in reverse order and manage bookmarked sites. This project serves as a practical implementation of Data Structures and Algorithms, demonstrating the utility of a Doubly Linked List in real-world applications.</p>
 </div>
 <br>
 <div>
@@ -84,7 +84,7 @@
     </a>
     <ol>
         <li>Clone the repository to your local computer.</li>
-        <li>Navigate to "BrowserHistoryManager.exe" on the "cmake-build-debug" and run it.</li>
+        <li>Navigate to "BrowserHistoryManager.exe" on the "cmake-build-debug" folder and run it.</li>
     </ol>
 </div>
 <br>
