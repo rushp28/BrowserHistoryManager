@@ -23,7 +23,7 @@
 // WebPage struct
 
 /*
- * @brief a WebPage struct to represent a web page
+ * @brief WebPage struct to represent a web page
  *
  * @var pageId       - the ID of the web page
  * @var pageName     - the name of the web page
@@ -48,14 +48,14 @@ typedef struct WebPage
  * @param siteUrl      - the URL of the web page
  * @param isBookmarked - whether the web page is bookmarked
  *
- * @returns a pointer to the WebPage object if the web page is valid, otherwise NULL
+ * @returns a WebPage object pointer if the web page is valid, otherwise NULL
  */
 WebPage* createWebPage(char pageName[], char pageId[], char siteUrl[], bool isBookmarked);
 
 /*
  * @brief destroys the given WebPage object
  *
- * @param pWebPage - pointer to the WebPage object to destroy
+ * @param pWebPage - the pointer to the WebPage object to destroy
  */
 void destroyWebPage(WebPage* pWebPage);
 
@@ -69,6 +69,6 @@ void destroyWebPage(WebPage* pWebPage);
  *
  * @returns true if the web page is valid, otherwise false
  */
-bool isValidWebPage(char pageName[], char pageId[], char siteUrl[], bool isBookmarked);
+bool areValidWebPageDetails(char pageName[], char pageId[], char siteUrl[], bool isBookmarked);
 
 #endif //BROWSERHISTORYMANAGER_WEBPAGE_H

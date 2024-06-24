@@ -13,7 +13,7 @@
 // BrowserHistory struct
 
 /*
- * @brief a BrowserHistory struct to represent a browser history
+ * @brief BrowserHistory struct to represent a browser history
  *
  * @var pHead          - a pointer to the head of the browser history
  * @var pTail          - a pointer to the tail of the browser history
@@ -30,29 +30,29 @@ typedef struct BrowserHistory {
 /*
  * @brief creates a BrowserHistory object
  *
- * @returns a pointer to the BrowserHistory object
+ * @returns a BrowserHistory object pointer
  */
 BrowserHistory* createBrowserHistory();
 
 /*
  * @brief destroys the given BrowserHistory object
  *
- * @param pBrowserHistory - pointer to the BrowserHistory object to destroy
+ * @param pBrowserHistory - the pointer to the BrowserHistory object to destroy
  */
 void destroyBrowserHistory(BrowserHistory* pBrowserHistory);
 
 /*
  * @brief pushes the given BrowserHistoryItem object to the given BrowserHistory object
  *
- * @param pBrowserHistory      - pointer to the BrowserHistory object
- * @param pBrowserHistoryItem  - pointer to the BrowserHistoryItem object
+ * @param pBrowserHistory      - the pointer to the BrowserHistory object to use
+ * @param pBrowserHistoryItem  - the pointer to the BrowserHistoryItem object to push
  */
 void pushBrowserHistoryItem(BrowserHistory* pBrowserHistory, BrowserHistoryItem* pBrowserHistoryItem);
 
 /*
  * @brief deletes the BrowserHistoryItem object with the given ID from the given BrowserHistory object
  *
- * @param pBrowserHistory      - pointer to the BrowserHistory object
+ * @param pBrowserHistory      - the pointer to the BrowserHistory object to be used
  * @param browserHistoryItemId - the ID of the BrowserHistoryItem object to delete
  */
 void deleteBrowserHistoryItem(BrowserHistory* pBrowserHistory, int browserHistoryItemId);
@@ -60,7 +60,7 @@ void deleteBrowserHistoryItem(BrowserHistory* pBrowserHistory, int browserHistor
 /*
  * @brief prints the given BrowserHistory object
  *
- * @param pBrowserHistory - pointer to the BrowserHistory object to print
+ * @param pBrowserHistory - the pointer to the BrowserHistory object to print
  * @param reversed        - whether to print the browser history in reverse order
  * @param bookmarkedOnly  - whether to print only bookmarked items
  */

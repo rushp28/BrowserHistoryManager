@@ -6,7 +6,7 @@
 // Date struct
 
 /*
- * @brief a Date struct to represent a date
+ * @brief Date struct to represent a date
  *
  * @var day   - the day of the date
  * @var month - the month of the date
@@ -27,14 +27,14 @@ typedef struct {
  * @param month - the month of the date
  * @param year  - the year of the date
  *
- * @returns a pointer to the Date object if the date is valid, otherwise NULL
+ * @returns a Date object pointer if the date is valid, otherwise NULL
  */
 Date* createDate(short int day, short int month, short int year);
 
 /*
  * @brief destroys the given Date object
  *
- * @param pDate - the Date object to destroy
+ * @param pDate - the pointer to the Date object to destroy
  */
 void destroyDate(Date* pDate);
 

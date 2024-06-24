@@ -3,14 +3,13 @@
 
 #include "date.h"
 
+// Date function definitions
+
 Date* createDate(short int day, short int month, short int year) {
     // Check if the date is valid
     if (!isValidDate(day, month, year)) {
-        // If the date is invalid, print an error message and return NULL
-        if (!isValidDate(day, month, year)) {
-            fprintf(stderr, "Error: Invalid Date provided: %02d/%02d/%d. Creating Date object failed.\n", day, month, year);
-            return NULL;
-        }
+        fprintf(stderr, "Error: Invalid Date provided: %02d/%02d/%d. Creating Date object failed.\n", day, month, year);
+        return NULL;
     }
 
     // Allocate memory for the Date object
@@ -26,12 +25,12 @@ Date* createDate(short int day, short int month, short int year) {
     pDate->month = month;
     pDate->year = year;
 
-    // Return the Date object
+    // Return the Date object pointer
     return pDate;
 }
 
 void destroyDate(Date* pDate) {
-    // Check if the pointer for Date is NULL
+    // Check if the Date object pointer is NULL
     if (pDate == NULL) {
         fprintf(stderr, "Error: NULL Pointer for Date. Pointer for Date should not be NULL. Destroying Date object failed.\n");
         return;
